@@ -1,8 +1,8 @@
 此笔记摘抄自https://www.cnblogs.com/sam-uncle/p/8954401.html，“JAVA开发老菜鸟”博客。
-第一篇：使用 Eureke 进行服务治理
-1.通过spring-cloud-starter-eureka-server和@EnableEurekaServer实现服务注册中心。
-2.通过spring-cloud-starter-eureka和@EnableDiscoveryClient使用并注册到服务注册中心。
-3.通过spring-cloud-starter-eureka和@EnableDiscoveryClient使用注册中心并发现服务，
+第一篇：使用 Eureka 进行服务治理
+通过spring-cloud-starter-eureka-server和@EnableEurekaServer实现服务注册中心。
+通过spring-cloud-starter-eureka和@EnableDiscoveryClient使用并注册到服务注册中心。
+通过spring-cloud-starter-eureka和@EnableDiscoveryClient使用注册中心并发现服务，
 通过spring-cloud-starter-ribbon来实现负载均衡消费服务。
 
 第二篇：使用 Eureka 搭建高可用服务注册中心
