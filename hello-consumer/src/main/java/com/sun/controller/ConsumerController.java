@@ -3,18 +3,16 @@ package com.sun.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
+
+import com.sun.service.ConsumerService;
 
 @RestController
 public class ConsumerController {
-	// 这里注入的restTemplate就是在com.sun.ConsumerApp中通过@Bean配置的实例
 	@Autowired
-	private RestTemplate restTemplate;
+	private ConsumerService consumerService;
 
 	@RequestMapping("/hello-consumer")
 	public String helloConsumer() {
-		// 调用hello-service服务，注意这里用的是服务名，而不是具体的ip+port
-		restTemplate.getForObject("http://hello-service/hello", String.class);
-		return "hello consumer finish !!!";
+		return consumerService.consumer();
 	}
 }
