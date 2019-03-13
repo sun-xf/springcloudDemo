@@ -7,7 +7,7 @@ import org.springframework.web.client.RestTemplate;
 
 @RestController
 public class ConsumerController {
-	// 这里注入的restTemplate就是在com.sam.ConsumerApp中通过@Bean配置的实例
+	// 这里注入的restTemplate就是在com.sun.ConsumerApp中通过@Bean配置的实例
 	@Autowired
 	private RestTemplate restTemplate;
 
