@@ -31,14 +31,6 @@
 		</dependencies>
 	</dependencyManagement>
 	
-	<dependencies>
-        <!-- 引入eureka server依赖 -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka-server</artifactId>
-        </dependency>
-    </dependencies>
-    
 	<modules>
 		<module>eureka</module>
 		<module>hello-consumer</module>

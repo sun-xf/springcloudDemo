@@ -1,4 +1,13 @@
 此笔记摘抄自https://www.cnblogs.com/sam-uncle/p/8954401.html，“JAVA开发老菜鸟”博客。
+第一篇：使用 Eureke 进行服务治理
 1.通过spring-cloud-starter-eureka-server和@EnableEurekaServer实现服务注册中心。
 2.通过spring-cloud-starter-eureka和@EnableDiscoveryClient使用并注册到服务注册中心。
 3.通过spring-cloud-starter-eureka和@EnableDiscoveryClient使用注册中心并发现服务，通过spring-cloud-starter-ribbon来实现负载均衡消费服务。
+
+第二篇：使用 Eureka 搭建高可用服务注册中心
+在实际的应用中，分布式系统为了防止单体服务宕机带来严重后果，一般都会采用服务器集群的形式，服务注册中心也是一样，需要多台服务一起工作，组成高可用的服务注册中心。
+这样，如果有其中一台宕机，系统也能正常运行。那么如何来构建高可用的服务注册中心呢？
+由于eureka注册中心既可以作为服务端（服务注册中心），也可以作为客户端（到别的注册中心注册自己），
+我们可以通过在机器上部署peer1和peer2两个服务，两个服务相互注册。
+如果没有安装springboot插件，启动peer1服务时，需要在Debug Configurations-->Java Application中，新建一个eureka1,在Arguments
+的VM arguments中设置-Dspring.profiles.active=peer1，peer2同理。
