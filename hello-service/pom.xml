@@ -11,11 +11,21 @@
 	<packaging>jar</packaging>
 	<name>hello-service</name>
 
+	<properties>
+		<sun.version>0.0.1-SNAPSHOT</sun.version>
+	</properties>
+
 	<dependencies>
 		<!-- 引入eureka 客户端依赖 -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-eureka</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun</groupId>
+			<artifactId>core-api</artifactId>
+			<version>${sun.version}</version>
 		</dependency>
 	</dependencies>
 </project>

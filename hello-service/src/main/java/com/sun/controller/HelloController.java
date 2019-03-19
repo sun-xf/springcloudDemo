@@ -5,12 +5,16 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sun.domain.User;
+import com.sun.service.BaseHello;
+
 //@RestController注解的类，方法不能返回html和jsp。
 @RestController
-public class HelloController {
+public class HelloController implements BaseHello{
 	Logger logger = LoggerFactory.getLogger(HelloController.class);
 	
 	@Autowired
@@ -23,4 +27,14 @@ public class HelloController {
         logger.info("*********" + instance.getServiceId());
         return "hello,this is hello-service";
     }
+
+	@Override
+	public String hello2() {
+		return "hello,this is hello2-service";
+	}
+
+	@Override
+	public User printUser(@RequestBody User user) {
+		return user;
+	}
 }
