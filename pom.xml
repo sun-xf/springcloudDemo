@@ -37,5 +37,6 @@
 		<module>hello-service</module>
 		<module>core-api</module>
 		<module>feign-consumer</module>
+		<module>gateway-api</module>
 	</modules>
 </project>

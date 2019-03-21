@@ -1,6 +1,5 @@
 package com.sun.service;
 
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sun.domain.User;
@@ -12,5 +11,5 @@ public interface BaseHello {
     public String hello2();
     
     @RequestMapping("/hello3")
-    public User printUser(@RequestBody User user);
+    public User printUser(User user);
 }
