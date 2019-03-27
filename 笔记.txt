@@ -36,7 +36,7 @@
 http://localhost:7001/sun/dev/master
 http://localhost:7001/sun/test/master
 
-http://localhost:7001/sun/dev/dev
-http://localhost:7001/sun/test/dev
+http://localhost:7001/sun/dev/config-label-test
+http://localhost:7001/sun/test/config-label-test
 
 上面的路径对应的是 {application}/{profile}/{label},label是代表分支。
