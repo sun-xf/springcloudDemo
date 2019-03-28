@@ -64,5 +64,6 @@
 		<module>gateway-api</module>
 		<module>config-server</module>
 		<module>config-client</module>
+		<module>sleuth-zipkin</module>
 	</modules>
 </project>
