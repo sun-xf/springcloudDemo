@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sun.wiki.dao.CategoryMapper">
+  <resultMap id="BaseResultMap" type="com.sun.wiki.entity.Category">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="PARENT_ID" jdbcType="VARCHAR" property="parentId" />
+    <result column="DESCRIPTION" jdbcType="VARCHAR" property="description" />
+    <result column="KEYWORD" jdbcType="VARCHAR" property="keyword" />
+    <result column="CODE" jdbcType="VARCHAR" property="code" />
+    <result column="ORDER_TIMESTAMPS" jdbcType="DECIMAL" property="orderTimestamps" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, NAME, PARENT_ID, DESCRIPTION, KEYWORD, CODE, ORDER_TIMESTAMPS
+  </sql>
+  
+  <select id="loadCategory" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from KE_WIKI_TERM_CATEGORY
+  </select>
+  
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from KE_WIKI_TERM_CATEGORY
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from KE_WIKI_TERM_CATEGORY
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sun.wiki.entity.Category">
+    insert into KE_WIKI_TERM_CATEGORY (ID, NAME, PARENT_ID, 
+      DESCRIPTION, KEYWORD, CODE, 
+      ORDER_TIMESTAMPS)
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{parentId,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR}, #{keyword,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, 
+      #{orderTimestamps,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sun.wiki.entity.Category">
+    insert into KE_WIKI_TERM_CATEGORY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="parentId != null">
+        PARENT_ID,
+      </if>
+      <if test="description != null">
+        DESCRIPTION,
+      </if>
+      <if test="keyword != null">
+        KEYWORD,
+      </if>
+      <if test="code != null">
+        CODE,
+      </if>
+      <if test="orderTimestamps != null">
+        ORDER_TIMESTAMPS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null">
+        #{parentId,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="keyword != null">
+        #{keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="orderTimestamps != null">
+        #{orderTimestamps,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sun.wiki.entity.Category">
+    update KE_WIKI_TERM_CATEGORY
+    <set>
+      <if test="name != null">
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null">
+        PARENT_ID = #{parentId,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        DESCRIPTION = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="keyword != null">
+        KEYWORD = #{keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        CODE = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="orderTimestamps != null">
+        ORDER_TIMESTAMPS = #{orderTimestamps,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sun.wiki.entity.Category">
+    update KE_WIKI_TERM_CATEGORY
+    set NAME = #{name,jdbcType=VARCHAR},
+      PARENT_ID = #{parentId,jdbcType=VARCHAR},
+      DESCRIPTION = #{description,jdbcType=VARCHAR},
+      KEYWORD = #{keyword,jdbcType=VARCHAR},
+      CODE = #{code,jdbcType=VARCHAR},
+      ORDER_TIMESTAMPS = #{orderTimestamps,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

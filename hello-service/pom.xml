@@ -27,5 +27,48 @@
 			<artifactId>core-api</artifactId>
 			<version>${sun.version}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.mybatis.generator</groupId>
+				<artifactId>mybatis-generator-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>Generate MyBatis Artifacts</id>
+						<phase>package</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<!--允许移动生成的文件 -->
+					<verbose>true</verbose>
+					<!-- 是否覆盖 -->
+					<overwrite>true</overwrite>
+					<!-- 自动生成的配置 -->
+					<configurationFile>
+						src/main/resources/generatorConfig.xml
+					</configurationFile>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
