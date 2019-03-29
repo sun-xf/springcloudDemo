@@ -11,12 +11,12 @@ core-api：用于存放domain（实体类），用于服务端和消费端使用
 eureka：服务注册中心。
 
 feign-consumer：使用feign实现声明式服务调用，需要在接口类上增加 @FeignClient(name="hello-service")，hello-service为调用的服务名，方法上增加
-@RequestMapping注解，需要标明要调用的接口名称。
+@RequestMapping注解，需要标明要调用的接口名称。也就是我们通常说的consumer（消费者）项目。
 
 gateway-api：使用Zuul 实现API网关服务，它可以维护路由规则和服务实例。还可以做一些校验，比如登录校验。
 
 hello-consumer：此项目只是演示项目，一般不建议这样使用。
 
-hello-service：服务端项目，已集成Mybatis。
+hello-service：provider（提供者） 项目，已集成Mybatis。
 
 sleuth-zipkin：使用spring cloud sleuth整合zipkin进行服务链路追踪。
