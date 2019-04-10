@@ -34,6 +34,7 @@ hello-consumer：
 hello-service：
 -------------
 provider（提供者） 项目，已集成Mybatis。
+生成实体类配置好配置文件后，可以使用maven命令：mybatis-generator:generate来生成实体类。
 
 sleuth-zipkin：
 -------------
