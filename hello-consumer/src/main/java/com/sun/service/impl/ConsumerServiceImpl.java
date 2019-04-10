@@ -17,7 +17,7 @@ public class ConsumerServiceImpl extends AbstractService implements ConsumerServ
 	@Override
 	public String consumer() {
 		// 调用hello-service服务，注意这里用的是服务名，而不是具体的ip+port
-		restTemplate.getForObject("http://hello-service/hello", String.class);
+		restTemplate.getForObject("http://hello-service/refactor/hello", String.class);
 		return "hello consumer finish !!!";
 	}
 }
